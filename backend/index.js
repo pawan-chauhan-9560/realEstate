@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import userRouter from './routes/userRoute.js';
 
 dotenv.config();
 
@@ -25,3 +26,6 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+app.use('/backend/user',userRouter);
+
